@@ -13,10 +13,6 @@ import {
 
 import Title from './src/components/Title/Title';
 import globalStyles from './src/components/globalStyles/globalStyles';
-
-import FontAwesome from "react-native-vector-icons/FontAwesome"
-import { faCalendarMinus } from '@fortawesome/free-regular-svg-icons'
-
 import UserStory from './src/components/UserStory/UserStory';
 import UserPost from './src/components/UserPost/UserPost';
 
@@ -140,7 +136,7 @@ const App = () => {
   const [userStoriesRenderedData, setUserStoriesRenderedData] = useState([]);
   const [isLoadingUserStories, setIsLoadingUserStories] = useState(false)
 
-  const userPostsPageSize = 4;
+  const userPostsPageSize = 5;
   const [userPostsCurrentPage, setUserPostsCurrentPage] = useState(1);
   const [userPostsRenderedData, setUserPostsRenderedData] = useState([]);
   const [isLoadingUserSPosts, setIsLoadingUserPosts] = useState(false)
@@ -161,6 +157,13 @@ const App = () => {
     setIsLoadingUserStories(false);
   }, []);
 
+  useEffect(() => {
+    setIsLoadingUserPosts(true);
+    const getInitialDataPosts = pagination(userPosts, 1, userPostsPageSize);
+    setUserPostsRenderedData(getInitialDataPosts);
+    setIsLoadingUserStories(false);
+  }, []);
+
 
   return (
 
@@ -171,8 +174,8 @@ const App = () => {
 
         <TouchableOpacity style={globalStyles.messageIcon}>
           <Image
-          source={require('./src/assets/images/mail.png')}
-          style={{width:25,height:25}}
+            source={require('./src/assets/images/mail.png')}
+            style={{ width: 25, height: 25 }}
           />
           <View style={globalStyles.messageNumberContainer}>
             <Text style={globalStyles.messageNumber}>
@@ -218,22 +221,42 @@ const App = () => {
       </View>
 
       <View style={globalStyles.userPostContainer}>
-        <FlatList 
-        data={userPosts}
-        renderItem={({item})=>(
-        
-        <UserPost 
-        firstName={item.firstName}
-        lastName={item.lastName}
-        image={item.image}
-        likes={item.likes}
-        comments={item.bookmarks}
-        bookmarks={item.bookmarks}
-        profileImage={item.profileImage}
-        location={item.location}
+        <FlatList
+          onEndReachedThreshold={0.5}
+          onEndReached={() => {
+            if (isLoadingUserSPosts) {
+              return;
+            }
+            setIsLoadingUserPosts(true);
+            const contentToAppend = pagination(
+              userPosts,
+              userPostsCurrentPage + 1,
+              userPostsPageSize,
+            );
+            if (contentToAppend.length > 0) {
+              setUserPostsCurrentPage(userPostsCurrentPage + 1);
+              setUserPostsRenderedData(prev => [
+                ...prev,
+                ...contentToAppend
+              ]);
+            }
+            setIsLoadingUserPosts(false);
+          }}
+          data={userPostsRenderedData}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) => (
+            <UserPost
+              firstName={item.firstName}
+              lastName={item.lastName}
+              image={item.image}
+              likes={item.likes}
+              comments={item.bookmarks}
+              bookmarks={item.bookmarks}
+              profileImage={item.profileImage}
+              location={item.location}
 
-        />
-        )}/>
+            />
+          )} />
       </View>
     </SafeAreaView>
   )

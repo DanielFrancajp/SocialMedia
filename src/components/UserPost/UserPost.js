@@ -31,10 +31,13 @@ const UserPost = props => {
 
                 <View>
                 </View>
+
                 <TouchableOpacity>
-                    <Text style={{ fontSize: 24, color: '#79869F' }}>
+                    <View >
+                    <Text style={styles.userPostsAbents}>
                         ...
                     </Text>
+                    </View>
                 </TouchableOpacity>
             </View>
 
@@ -42,26 +45,26 @@ const UserPost = props => {
                 <Image source={props.image} />
             </View>
 
-            <View style={{ marginLeft: 10 , flexDirection: 'row'}}>
+            <View style={styles.userPostStats}>
 
-                <View style={{ flexDirection: 'row' }}>
+                <View style={styles.userPostContentIcons}>
                     <Image
                         source={require('../../assets/images/hearth.png')}
                         style={{ width: 20, height: 20, }} />
                     <Text style={{ marginLeft: 3, color: '#79869f' }}>{props.likes}</Text>
                 </View>
 
-                <View style={{ flexDirection: 'row' ,marginLeft:27}}>
+                <View style={styles.userPostStatsButton}>
                     <Image
                         source={require('../../assets/images/chatt.png')}
                         style={{ width: 20, height: 20, }} />
-                    <Text style={{ marginLeft: 3, color: '#79869f' }}>{props.likes}</Text>
+                    <Text style={styles.userPostStatsButton}>{props.likes}</Text>
                 </View>
                 <View style={{ flexDirection: 'row' ,marginLeft:27}}>
                     <Image
                         source={require('../../assets/images/send.png')}
                         style={{ width: 20, height: 20, }} />
-                    <Text style={{ marginLeft: 3, color: '#79869f' }}>{props.likes}</Text>
+                    <Text style={styles.userPostStatsText}>{props.likes}</Text>
                 </View>
                 
         
