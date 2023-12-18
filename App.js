@@ -5,11 +5,11 @@ import {
   TouchableOpacity,
   Text,
   FlatList,
-  Image
+  Image,
+  Dimensions
 
 }
   from "react-native";
-
 
 import Title from './src/components/Title/Title';
 import globalStyles from './src/components/globalStyles/globalStyles';
@@ -131,6 +131,7 @@ const App = () => {
     },
   ]
 
+
   const userStoriesPageSize = 4;
   const [userStoriesCurrentPage, setUserStoriesCurrentPage] = useState(1);
   const [userStoriesRenderedData, setUserStoriesRenderedData] = useState([]);
@@ -139,7 +140,8 @@ const App = () => {
   const userPostsPageSize = 5;
   const [userPostsCurrentPage, setUserPostsCurrentPage] = useState(1);
   const [userPostsRenderedData, setUserPostsRenderedData] = useState([]);
-  const [isLoadingUserSPosts, setIsLoadingUserPosts] = useState(false)
+  const [isLoadingUserSPosts, setIsLoadingUserPosts] = useState(false);
+
 
   const pagination = (database, currentPage, pageSize) => {
     const startIndex = (currentPage - 1) * pageSize;
@@ -155,21 +157,19 @@ const App = () => {
     const getInitialData = pagination(userStories, 1, userStoriesPageSize);
     setUserStoriesRenderedData(getInitialData);
     setIsLoadingUserStories(false);
-  }, []);
 
-  useEffect(() => {
     setIsLoadingUserPosts(true);
     const getInitialDataPosts = pagination(userPosts, 1, userPostsPageSize);
     setUserPostsRenderedData(getInitialDataPosts);
     setIsLoadingUserStories(false);
-  }, []);
 
+  }, []);
 
   return (
 
     <SafeAreaView >
-      <View style={globalStyles.header}>
 
+      <View style={globalStyles.header}>
         <Title title={"Let's Explore"} />
 
         <TouchableOpacity style={globalStyles.messageIcon}>
@@ -177,6 +177,9 @@ const App = () => {
             source={require('./src/assets/images/mail.png')}
             style={{ width: 25, height: 25 }}
           />
+
+
+
           <View style={globalStyles.messageNumberContainer}>
             <Text style={globalStyles.messageNumber}>
               2

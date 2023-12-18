@@ -28,6 +28,7 @@ const UserStory = (props) => {
 UserStory.PropTypes = {
     firstName: PropTypes.string.isRequired,
     profileImage: PropTypes.any.isRequired,
+    updateName: PropTypes.any.isRequired
 }
 
 export default UserStory;
