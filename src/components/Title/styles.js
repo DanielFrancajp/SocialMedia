@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     title: {
         color: "#022150",
         fontFamily: getFontFamily('Inter', '600'),
-        fontSize: 24
+        fontSize: scaleFontSize(24)
     }
 })
 

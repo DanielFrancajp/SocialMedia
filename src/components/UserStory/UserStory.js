@@ -8,16 +8,17 @@ import {
 
 import styles from "./style";
 import UserProfileImage from "../UserProfile/UserProfileImage";
+import { horizontalScale, verticalScale, scaleFontSize } from "../globalStyles/scalling";
 
 const UserStory = (props) => {
 
     return (
 
         <View style={styles.storyContainer}>
-           <UserProfileImage 
-           profileImage={props.profileImage}
-           imageDimensions={65}
-           />
+            <UserProfileImage
+                profileImage={props.profileImage}
+                imageDimensions={horizontalScale(48)}
+            />
 
             <Text style={styles.firstName}>{props.firstName}</Text>
         </View>

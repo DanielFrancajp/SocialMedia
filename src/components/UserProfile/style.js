@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { getFontFamily } from "../../assets/fonts/helper";
+import { verticalScale } from "../globalStyles/scalling";
 
 const styles = StyleSheet.create({
 

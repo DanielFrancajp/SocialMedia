@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { getFontFamily } from "../../assets/fonts/helper";
+import { scaleFontSize ,horizontalScale, verticalScale} from "../globalStyles/scalling";
 
 const styles = StyleSheet.create({
 
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     },
     userTextContainer: {
         justifyContent: 'center',
-        marginLeft: 10,
+        marginLeft: horizontalScale(10)
     },
     user: {
 
@@ -19,39 +19,39 @@ const styles = StyleSheet.create({
     },
     username: {
         color: '#000000',
-        fontSize: 16,
+        fontSize: scaleFontSize(16),
         fontWeight: '600'
     },
     location: {
         color: '#79869F',
         fontWeight: '400',
         fontSize: 12,
-        marginTop: 5
+        marginTop: verticalScale(5),
     },
     postImage: {
         alignItems: 'center',
-        marginVertical: 20,
+        marginVertical: horizontalScale(20),
     },
     userPostContainer: {
-        margintop: 35,
+        margintop: verticalScale(35),
     },
     userPostsAbents:
     {
-        fontSize: 24,
+        fontSize: scaleFontSize(24),
         color: '#79869F'
     },
     userPostStats: {
-        marginLeft: 10, flexDirection: 'row',
+        marginLeft: horizontalScale(10), flexDirection: 'row',
     },
     userPostContentIcons: {
         flexDirection: 'row'
     },
     userPostStatsButton: {
         flexDirection: 'row',
-        marginLeft: 27,
+        marginLeft: horizontalScale(27),
     },
     userPostStatsText: {
-        marginLeft: 3,
+        marginLeft: horizontalScale(3),
         color: '#79869f'
     },
 

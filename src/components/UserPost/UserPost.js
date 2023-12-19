@@ -10,7 +10,7 @@ import styles from "./styles";
 const UserPost = props => {
     return (
 
-        <View style={{ marginTop: 35 ,borderBottomWidth: 1, padding:20, borderBottomColor: '#EFF2F6'}}>
+        <View style={{ marginTop: 35, borderBottomWidth: 1, padding: 20, borderBottomColor: '#EFF2F6' }}>
 
             <View style={styles.user}>
                 <View style={styles.userContainer}>
@@ -34,9 +34,9 @@ const UserPost = props => {
 
                 <TouchableOpacity>
                     <View >
-                    <Text style={styles.userPostsAbents}>
-                        ...
-                    </Text>
+                        <Text style={styles.userPostsAbents}>
+                            ...
+                        </Text>
                     </View>
                 </TouchableOpacity>
             </View>
@@ -58,16 +58,18 @@ const UserPost = props => {
                     <Image
                         source={require('../../assets/images/chatt.png')}
                         style={{ width: 20, height: 20, }} />
-                    <Text style={styles.userPostStatsButton}>{props.likes}</Text>
+                    <View style={{marginLeft: -20}}>
+                        <Text style={styles.userPostStatsButton}>{props.likes}</Text>
+                    </View>
                 </View>
-                <View style={{ flexDirection: 'row' ,marginLeft:27}}>
+                <View style={{ flexDirection: 'row', marginLeft: 27 }}>
                     <Image
                         source={require('../../assets/images/send.png')}
                         style={{ width: 20, height: 20, }} />
                     <Text style={styles.userPostStatsText}>{props.likes}</Text>
                 </View>
-                
-        
+
+
             </View>
         </View>
     )

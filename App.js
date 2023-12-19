@@ -6,8 +6,6 @@ import {
   Text,
   FlatList,
   Image,
-  Dimensions
-
 }
   from "react-native";
 
@@ -15,6 +13,7 @@ import Title from './src/components/Title/Title';
 import globalStyles from './src/components/globalStyles/globalStyles';
 import UserStory from './src/components/UserStory/UserStory';
 import UserPost from './src/components/UserPost/UserPost';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const App = () => {
 
@@ -168,7 +167,7 @@ const App = () => {
   return (
 
     <SafeAreaView >
-
+     <Icon name="rocket" size={30} color="#900" />
       <View style={globalStyles.header}>
         <Title title={"Let's Explore"} />
 
