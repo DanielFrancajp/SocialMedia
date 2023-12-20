@@ -6,18 +6,15 @@ import {
   Text,
   FlatList,
 } from 'react-native';
-
 import Title from '../../components/Title/Title';
-import style from './style';
-import UserPost from '../../components/UserPost/UserPost';
-import UserStory from '../../components/UserStory/UserStory';
-import globalStyle from '../../assets/styles/globalStyle';
-
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import style from './style';
+import UserStory from '../../components/UserStory/UserStory';
+import UserPost from '../../components/UserPost/UserPost';
 import {scaleFontSize} from '../../assets/styles/scaling';
+import globalStyle from '../../assets/styles/globalStyle';
 import {Routes} from '../../navigation/Routes';
-
 const Home = ({navigation}) => {
   const userStories = [
     {
@@ -163,11 +160,7 @@ const Home = ({navigation}) => {
             <>
               <View style={style.header}>
                 <Title title={'Let’s Explore'} />
-                <TouchableOpacity
-                  style={style.messageIcon}
-                  onPress={() => {
-                    navigation.navigate(Routes.Profile);
-                  }}>
+                <TouchableOpacity style={style.messageIcon}>
                   <FontAwesomeIcon
                     icon={faEnvelope}
                     size={scaleFontSize(20)}
